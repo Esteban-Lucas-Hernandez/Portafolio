@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Esteban Lucas Hernández - Portafolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h2>ELH</h2>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="#inicio" class="nav-link">Inicio</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#sobre-mi" class="nav-link">Sobre mí</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#tecnologias" class="nav-link">Tecnologías</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#proyectos" class="nav-link">Proyectos</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#habilidades" class="nav-link">Habilidades</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#educacion" class="nav-link">Educación</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#contacto" class="nav-link">Contacto</a>
+                </li>
+            </ul>
+            <div class="nav-toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1 class="hero-title">Esteban Lucas Hernández</h1>
+                <h2 class="hero-subtitle">Desarrollador Full Stack Junior</h2>
+                <p class="hero-description">
+                    Desarrollador Full Stack Junior enfocado en la creación de aplicaciones web modernas, 
+                    funcionales y centradas en el usuario.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#proyectos" class="btn btn-primary">Ver proyectos</a>
+                    <a href="https://github.com/Esteban-Lucas-Hernandez" target="_blank" class="btn btn-secondary">
+                        <i class="fab fa-github"></i> GitHub
+                    </a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="profile-image-container">
+                    <img src="./img/foto.jpg" alt="Foto de perfil de Esteban Lucas Hernandez" class="profile-image">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="sobre-mi" class="about">
+        <div class="container">
+            <h2 class="section-title">Sobre mí</h2>
+            <div class="about-content">
+                <p>
+                    Desarrollador Full Stack Junior con experiencia en desarrollo de aplicaciones web utilizando Django, Spring Boot, React, Angular, Laravel.
+                </p>
+                <p>
+                    Implementación de APIs REST, autenticación con JWT, consumo de servicios externos y gestión de bases de datos relacionales mediante ORM.
+                </p>
+                <p>
+                    Desarrollo de paneles administrativos, dashboards con gráficos, y aplicaciones orientadas a buenas prácticas de código y control de versiones con Git/GitHub.
+                </p>
+                <p>
+                    Conocimientos en Docker, arquitectura modular, Swagger y metodologías ágiles, con interés en profundizar en Java y Spring Boot.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="tecnologias" class="skills">
+        <div class="container">
+            <h2 class="section-title">Tecnologías</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3><i class="fas fa-laptop-code"></i> Frontend</h3>
+                    <ul>
+                        <li><i class="fab fa-angular tech-icon angular"></i> Angular</li>
+                        <li><i class="fab fa-html5 tech-icon html5"></i> HTML</li>
+                        <li><i class="fab fa-css3-alt tech-icon css3"></i> CSS</li>
+                        <li><i class="fab fa-js tech-icon javascript"></i> JavaScript</li>
+                        <li><i class="fab fa-bootstrap tech-icon bootstrap"></i> Bootstrap</li>
+                        <li><i class="fab fa-vuejs tech-icon vuejs"></i> Vue.js</li>
+                        <li><i class="fab fa-react tech-icon react"></i> React</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3><i class="fas fa-server"></i> Backend</h3>
+                    <ul>
+                        <li><i class="fab fa-java tech-icon java"></i> Java</li>
+                        <li><i class="fas fa-leaf tech-icon spring"></i> Spring Boot</li>
+                        <li><i class="fas fa-shield-alt tech-icon security"></i> Spring Security</li>
+                        <li><i class="fas fa-key tech-icon jwt"></i> JWT</li>
+                        <li><i class="fas fa-database tech-icon jpa"></i> JPA</li>
+                        <li><i class="fab fa-python tech-icon python"></i> Django</li>
+                        <li><i class="fab fa-laravel tech-icon laravel"></i> Laravel (Básico)</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3><i class="fas fa-database"></i> Bases de Datos</h3>
+                    <ul>
+                        <li><i class="fas fa-database tech-icon database"></i> PostgreSQL</li>
+                        <li><i class="fas fa-database tech-icon database"></i> MySQL</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3><i class="fas fa-tools"></i> Otras Herramientas</h3>
+                    <ul>
+                        <li><i class="fab fa-git-alt tech-icon git"></i> Git</li>
+                        <li><i class="fab fa-github tech-icon github"></i> GitHub</li>
+                        <li><i class="fas fa-tasks tech-icon scrum"></i> Scrum / Metodologías ágiles</li>
+                        <li><i class="fas fa-pencil-ruler tech-icon design"></i> UX / UI</li>
+                        <li><i class="fas fa-exclamation-triangle tech-icon alert"></i> SweetAlert</li>
+                        <li><i class="fas fa-chart-bar tech-icon chart"></i> Chart.js</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="proyectos" class="projects">
+        <div class="container">
+            <h2 class="section-title">Proyectos</h2>
+            <p class="section-description">
+                En esta sección se presentan algunos de mis proyectos académicos y personales, 
+                donde aplico mis conocimientos en desarrollo frontend y backend.
+            </p>
+            
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="./img/goreser.png" alt="Hotel Reservations API">
+                    </div>
+                    <div class="project-content">
+                        <h3>API REST Hotel Reservations</h3>
+                        <p class="project-description">
+                            Sistema completo de reservas hoteleras desarrollado con Spring Boot, 
+                            implementando arquitectura RESTful con autenticación JWT.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Spring Boot</span>
+                            <span class="tech-tag">JWT</span>
+                            <span class="tech-tag">REST API</span>
+                            <span class="tech-tag">Angular</span>
+                            <span class="tech-tag">TypeScript</span>
+                            <span class="tech-tag">PostgreSQL</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://go-reser-api-rest-full-stack-spring-r46x.onrender.com/public" 
+                               target="_blank" class="btn btn-small btn-primary">
+                                <i class="fas fa-external-link-alt"></i> Ver Proyecto
+                            </a>
+                            <a href="https://github.com/Esteban-Lucas-Hernandez/GO_RESER--API-REST--Full-Stack-Spring-Angular-PostgreSQL" 
+                               target="_blank" class="btn btn-small btn-secondary">
+                                <i class="fab fa-github"></i> Repositorio
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Additional project placeholders -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <i class="fas fa-shopping-cart"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>E-commerce Frontend</h3>
+                        <p class="project-description">
+                            Aplicación web de comercio electrónico desarrollada con Angular, 
+                            con carrito de compras y sistema de usuarios.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Angular</span>
+                            <span class="tech-tag">TypeScript</span>
+                            <span class="tech-tag">CSS3</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="btn btn-small btn-secondary disabled">
+                                <i class="fas fa-external-link-alt"></i> Próximamente
+                            </a>
+                            <a href="https://github.com/Esteban-Lucas-Hernandez" 
+                               target="_blank" class="btn btn-small btn-secondary">
+                                <i class="fab fa-github"></i> Repositorio
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3>Dashboard Analytics</h3>
+                        <p class="project-description">
+                            Panel de control con visualización de datos en tiempo real 
+                            utilizando Chart.js y React.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">React</span>
+                            <span class="tech-tag">Chart.js</span>
+                            <span class="tech-tag">JavaScript</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="btn btn-small btn-secondary disabled">
+                                <i class="fas fa-external-link-alt"></i> Próximamente
+                            </a>
+                            <a href="https://github.com/Esteban-Lucas-Hernandez" 
+                               target="_blank" class="btn btn-small btn-secondary">
+                                <i class="fab fa-github"></i> Repositorio
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Soft Skills Section -->
+    <section id="habilidades" class="soft-skills">
+        <div class="container">
+            <h2 class="section-title">Habilidades Blandas</h2>
+            <div class="skills-container">
+                <div class="skill-item">
+                    <i class="fas fa-user-tie"></i>
+                    <h3>Liderazgo</h3>
+                </div>
+                <div class="skill-item">
+                    <i class="fas fa-comments"></i>
+                    <h3>Comunicación</h3>
+                </div>
+                <div class="skill-item">
+                    <i class="fas fa-lightbulb"></i>
+                    <h3>Toma de decisiones</h3>
+                </div>
+                <div class="skill-item">
+                    <i class="fas fa-clock"></i>
+                    <h3>Gestión del tiempo</h3>
+                </div>
+                <div class="skill-item">
+                    <i class="fas fa-users"></i>
+                    <h3>Trabajo en equipo</h3>
+                </div>
+                <div class="skill-item">
+                    <i class="fas fa-chess"></i>
+                    <h3>Pensamiento estratégico</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="educacion" class="education">
+        <div class="container">
+            <h2 class="section-title">Educación</h2>
+            <div class="education-item">
+                <h3>Tecnólogo en Análisis y Desarrollo de Software</h3>
+                <p class="institution">Servicio Nacional de Aprendizaje – SENA</p>
+                <div class="education-details">
+                    <p><strong>Fecha de inicio:</strong> Julio 2024</p>
+                    <p><strong>Finalización lectiva:</strong> Marzo 2026</p>
+                    <p><strong>Finalización productiva:</strong> Octubre 2026</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Languages Section -->
+    <section class="languages">
+        <div class="container">
+            <h2 class="section-title">Idiomas</h2>
+            <div class="languages-grid">
+                <div class="language-item">
+                    <div class="language-info">
+                        <h3>Español</h3>
+                        <p>Nativo</p>
+                    </div>
+                    <div class="language-bar">
+                        <div class="progress-fill" style="width: 100%"></div>
+                    </div>
+                </div>
+                <div class="language-item">
+                    <div class="language-info">
+                        <h3>Inglés</h3>
+                        <p>Básico</p>
+                    </div>
+                    <div class="language-bar">
+                        <div class="progress-fill" style="width: 40%"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contacto" class="contact">
+        <div class="container">
+            <h2 class="section-title">Contacto</h2>
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h3>Teléfono</h3>
+                            <p>300 455 4430</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h3>Correo</h3>
+                            <p>lucashernandez12312006@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fab fa-github"></i>
+                        <div>
+                            <h3>GitHub</h3>
+                            <p>Esteban-Lucas-Hernandez</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="social-links">
+                    <a href="https://github.com/Esteban-Lucas-Hernandez" target="_blank" class="social-link">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="mailto:lucashernandez12312006@gmail.com" class="social-link">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                    <a href="tel:+573004554430" class="social-link">
+                        <i class="fas fa-phone"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2026 – Esteban Lucas Hernández</p>
+                <p>Desarrollador Full Stack Junior</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
