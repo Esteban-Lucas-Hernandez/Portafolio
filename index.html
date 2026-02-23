@@ -3,10 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portafolio de Esteban Lucas Hernández, Desarrollador Full Stack. Proyectos con Spring Boot, Django, Angular, React y más.">
+    <meta property="og:title" content="Esteban Lucas Hernández - Portafolio">
+    <meta property="og:description" content="Desarrollador Full Stack. Proyectos destacados y tecnologías.">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="es_ES">
     <title>Esteban Lucas Hernández - Portafolio</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="./css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="./img/masculino.png" type="image/x-icon">
 </head>
 <body>
     <!-- Navigation -->
@@ -38,7 +44,10 @@
                     <a href="#contacto" class="nav-link">Contacto</a>
                 </li>
             </ul>
-            <div class="nav-toggle" id="mobile-menu">
+            <button class="theme-toggle" id="theme-toggle" aria-label="Cambiar tema">
+                <i class="fas fa-moon"></i>
+            </button>
+            <div class="nav-toggle" id="mobile-menu" aria-label="Abrir menú" role="button" tabindex="0">
                 <span class="bar"></span>
                 <span class="bar"></span>
                 <span class="bar"></span>
@@ -51,14 +60,17 @@
         <div class="hero-container">
             <div class="hero-content">
                 <h1 class="hero-title">Esteban David Lucas Hernández</h1>
-                <h2 class="hero-subtitle">Desarrollador Full Stack Junior</h2>
+                <h2 class="hero-subtitle">Desarrollador Full Stack</h2>
+                <div class="hero-badges">
+                    <span class="badge">Remoto / Presencial</span>
+                </div>
                 <p class="hero-description">
-                    Desarrollador Full Stack Junior enfocado en la creación de aplicaciones web modernas, 
+                    Desarrollador Full Stack enfocado en la creación de aplicaciones web modernas, 
                     funcionales y centradas en el usuario.
                 </p>
                 <div class="hero-buttons">
                     <a href="#proyectos" class="btn btn-primary">Ver proyectos</a>
-                    <a href="https://github.com/Esteban-Lucas-Hernandez" target="_blank" class="btn btn-secondary">
+                    <a href="https://github.com/Esteban-Lucas-Hernandez" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
                         <i class="fab fa-github"></i> GitHub
                     </a>
                 </div>
@@ -77,7 +89,7 @@
             <h2 class="section-title">Sobre mí</h2>
             <div class="about-content">
                 <p>
-                    Desarrollador Full Stack Junior con experiencia en desarrollo de aplicaciones web utilizando Django, Spring Boot, React, Angular, Laravel.
+                    Desarrollador Full Stack con experiencia en desarrollo de aplicaciones web utilizando Django, Spring Boot, React, Angular, Laravel.
                 </p>
                 <p>
                     Implementación de APIs REST, autenticación con JWT, consumo de servicios externos y gestión de bases de datos relacionales mediante ORM.
@@ -173,11 +185,11 @@
                         </div>
                         <div class="project-links">
                             <a href="https://go-reser-api-rest-full-stack-spring-r46x.onrender.com/public" 
-                               target="_blank" class="btn btn-small btn-primary">
+                               target="_blank" rel="noopener noreferrer" class="btn btn-small btn-primary">
                                 <i class="fas fa-external-link-alt"></i> Ver Proyecto
                             </a>
                             <a href="https://github.com/Esteban-Lucas-Hernandez/GO_RESER--API-REST--Full-Stack-Spring-Angular-PostgreSQL" 
-                               target="_blank" class="btn btn-small btn-secondary">
+                               target="_blank" rel="noopener noreferrer" class="btn btn-small btn-secondary">
                                 <i class="fab fa-github"></i> Repositorio
                             </a>
                         </div>
@@ -204,11 +216,11 @@
                         </div>
                         <div class="project-links">
                             <a href="https://luxuryhome-front.onrender.com/" 
-                               target="_blank" class="btn btn-small btn-primary">
+                               target="_blank" rel="noopener noreferrer" class="btn btn-small btn-primary">
                                 <i class="fas fa-external-link-alt"></i> Ver Proyecto
                             </a>
                             <a href="https://github.com/Esteban-Lucas-Hernandez/LuxuryHome" 
-                               target="_blank" class="btn btn-small btn-secondary">
+                               target="_blank" rel="noopener noreferrer" class="btn btn-small btn-secondary">
                                 <i class="fab fa-github"></i> Repositorio
                             </a>
                         </div>
@@ -229,16 +241,18 @@
                             <span class="tech-tag">Spring-Boot</span>
                             <span class="tech-tag">HTML</span>
                             <span class="tech-tag">CSS</span>
+                            <span class="tech-tag">JWT</span>
+                            <span class="tech-tag">REST API</span>
                             <span class="tech-tag">JavaScript</span>
                             <span class="tech-tag">PostgreSQL</span>
                         </div>
                         <div class="project-links">
                             <a href="https://librorent-api-rest-1.onrender.com/index.html" 
-                               target="_blank" class="btn btn-small btn-primary">
+                               target="_blank" rel="noopener noreferrer" class="btn btn-small btn-primary">
                                 <i class="fas fa-external-link-alt"></i> Ver Proyecto
                             </a>
                             <a href="https://github.com/Esteban-Lucas-Hernandez/LibroRent-API-REST" 
-                               target="_blank" class="btn btn-small btn-secondary">
+                               target="_blank" rel="noopener noreferrer" class="btn btn-small btn-secondary">
                                 <i class="fab fa-github"></i> Repositorio
                             </a>
                         </div>
@@ -378,14 +392,14 @@
                     </div>
                 </div>
                 <div class="social-links">
-                    <a href="https://github.com/Esteban-Lucas-Hernandez" target="_blank" class="social-link">
-                        <i class="fab fa-github"></i>
+                    <a href="tel:+573004554430" class="social-link">
+                        <i class="fas fa-phone"></i>
                     </a>
                     <a href="mailto:lucashernandez12312006@gmail.com" class="social-link">
                         <i class="fas fa-envelope"></i>
                     </a>
-                    <a href="tel:+573004554430" class="social-link">
-                        <i class="fas fa-phone"></i>
+                     <a href="https://github.com/Esteban-Lucas-Hernandez" target="_blank" rel="noopener noreferrer" class="social-link">
+                        <i class="fab fa-github"></i>
                     </a>
                 </div>
             </div>
@@ -397,11 +411,15 @@
         <div class="container">
             <div class="footer-content">
                 <p>&copy; 2026 – Esteban Lucas Hernández</p>
-                <p>Desarrollador Full Stack Junior</p>
+                <p>Desarrollador Full Stack</p>
             </div>
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <a href="https://wa.me/3004554430" class="fab-contact" aria-label="Contactar">
+         <i class="fab fa-whatsapp"></i>
+     </a>
+
+    <script src="./js/script.js"></script>
 </body>
 </html>
