@@ -456,7 +456,7 @@ h1, h2, h3, h4 { letter-spacing: -0.5px; }
 
 .bento-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(6, 1fr);
     gap: 30px;
     margin-top: 60px;
 }
@@ -470,6 +470,7 @@ h1, h2, h3, h4 { letter-spacing: -0.5px; }
     flex-direction: column;
     border: 1px solid var(--border-color);
     transition: transform 0.4s ease, border-color 0.4s ease;
+    grid-column: span 3;
 }
 
 .bento-card:hover {
@@ -478,9 +479,13 @@ h1, h2, h3, h4 { letter-spacing: -0.5px; }
 }
 
 .bento-card.large {
-    grid-column: span 2;
+    grid-column: span 6;
     flex-direction: row;
     min-height: 500px;
+}
+
+.bento-card.small {
+    grid-column: span 2;
 }
 
 .bento-img {
@@ -494,6 +499,9 @@ h1, h2, h3, h4 { letter-spacing: -0.5px; }
 .bg-goreser { background-image: url('../img/goreser.png'); display:block; }
 .bg-luxury { background-image: url('../img/luruxy.png'); display:block; }
 .bg-libro { background-image: url('../img/librorent.png'); display:block; }
+.bg-curso { background-image: url('../img/Curso.png'); display:block; }
+.bg-porques { background-image: url('../img/porques.png'); display:block; }
+
 
 .bento-content {
     padding: 50px;
@@ -620,6 +628,7 @@ h1, h2, h3, h4 { letter-spacing: -0.5px; }
 @media screen and (max-width: 768px) {
     .nav-links { display: none; }
     .bento-grid { grid-template-columns: 1fr; }
+    .bento-card, .bento-card.large, .bento-card.small { grid-column: span 1; }
     .headline { font-size: 3rem; letter-spacing: -1px; }
     .sub-headline { font-size: 2rem; }
     .reveal-text { font-size: 2rem; }
