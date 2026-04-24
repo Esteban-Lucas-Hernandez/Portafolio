@@ -1,243 +1,160 @@
-// Mobile Navigation Toggle
-const mobileMenu = document.getElementById('mobile-menu');
-const navMenu = document.querySelector('.nav-menu');
-const themeToggle = document.getElementById('theme-toggle');
-
-mobileMenu.addEventListener('click', function() {
-    mobileMenu.classList.toggle('active');
-    navMenu.classList.toggle('active');
-});
-
-mobileMenu.addEventListener('keydown', function(e) {
-    if (e.key === 'Enter' || e.key === ' ') {
-        e.preventDefault();
-        mobileMenu.click();
+document.addEventListener('DOMContentLoaded', () => {
+    
+    // 1. Initialize AOS (Animate on Scroll)
+    if (typeof AOS !== 'undefined') {
+        AOS.init({
+            duration: 1000,
+            easing: 'ease-out-cubic',
+            once: false,
+            mirror: true
+        });
     }
-});
 
-// Close mobile menu when clicking on a link
-document.querySelectorAll('.nav-link').forEach(link => {
-    link.addEventListener('click', () => {
-        mobileMenu.classList.remove('active');
-        navMenu.classList.remove('active');
-    });
-});
+    // 2. Apple-style Text Reveal on Scroll logic using GSAP ScrollTrigger
+    if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+        gsap.registerPlugin(ScrollTrigger);
 
-// Smooth scrolling for navigation links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-        e.preventDefault();
+        const revealText = document.querySelector('.reveal-text');
         
-        const targetId = this.getAttribute('href');
-        const targetElement = document.querySelector(targetId);
-        
-        if (targetElement) {
-            const offsetTop = targetElement.offsetTop - 70;
-            window.scrollTo({
-                top: offsetTop,
-                behavior: 'smooth'
+        if (revealText) {
+            // Extract the text, split into words, and wrap each in a span
+            const words = revealText.innerText.split(/\s+/);
+            revealText.innerHTML = '';
+            
+            words.forEach(word => {
+                if (word.trim() === '') return;
+                const span = document.createElement('span');
+                span.innerText = word + ' ';
+                span.style.color = '#424245'; // Empieza oscuro
+                revealText.appendChild(span);
+            });
+
+            // Animate all spans sequentially over the entire pinned scroll height
+            gsap.to('.reveal-text span', {
+                scrollTrigger: {
+                    trigger: '.apple-about',
+                    start: 'top top',      // Cuando la sección toca el borde superior
+                    end: 'bottom bottom',  // Cuando termina de hacer scroll y se des-pinea
+                    scrub: 1,              // Suavidad de 1 segundo al soltar la rueda
+                },
+                color: '#f5f5f7', // Color iluminado
+                stagger: 0.1      // Animación palabra por palabra
             });
         }
-    });
-});
-
-// Navbar background change on scroll
-window.addEventListener('scroll', function() {
-    const navbar = document.querySelector('.navbar');
-    navbar.classList.toggle('scrolled', window.scrollY > 50);
-});
-
-// Active navigation link highlighting
-window.addEventListener('scroll', function() {
-    const sections = document.querySelectorAll('section[id]');
-    const navLinks = document.querySelectorAll('.nav-link');
-    
-    let current = '';
-    
-    sections.forEach(section => {
-        const sectionTop = section.offsetTop;
-        const sectionHeight = section.clientHeight;
-        
-        if (pageYOffset >= (sectionTop - 100)) {
-            current = section.getAttribute('id');
-        }
-    });
-    
-    navLinks.forEach(link => {
-        link.classList.remove('active');
-        if (link.getAttribute('href') === `#${current}`) {
-            link.classList.add('active');
-        }
-    });
-});
-
-// Animation on scroll
-const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
-};
-
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0)';
-        }
-    });
-}, observerOptions);
-
-// Apply animation to elements
-document.addEventListener('DOMContentLoaded', function() {
-    const animateElements = document.querySelectorAll(
-        '.skill-category, .project-card, .skill-item, .education-item, .language-item, .contact-item'
-    );
-    
-    animateElements.forEach(element => {
-        element.style.opacity = '0';
-        element.style.transform = 'translateY(20px)';
-        element.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-        observer.observe(element);
-    });
-
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme === 'dark') {
-        document.body.classList.add('dark');
-        if (themeToggle) {
-            themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
-        }
     }
-});
 
-// Theme toggle
-if (themeToggle) {
-    themeToggle.addEventListener('click', function() {
-        document.body.classList.toggle('dark');
-        const isDark = document.body.classList.contains('dark');
-        localStorage.setItem('theme', isDark ? 'dark' : 'light');
-        themeToggle.innerHTML = isDark ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
-    });
-}
-
-// Form validation and contact handling
-function validateEmail(email) {
-    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return re.test(email);
-}
-
-// Progress bar animation
-function animateProgressBars() {
-    const progressBars = document.querySelectorAll('.progress-fill');
-    
-    progressBars.forEach(bar => {
-        const width = bar.style.width;
-        bar.style.width = '0';
-        
-        setTimeout(() => {
-            bar.style.width = width;
-        }, 300);
-    });
-}
-
-// Call progress bar animation when languages section is in view
-const languagesSection = document.querySelector('.languages');
-if (languagesSection) {
-    const languagesObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                animateProgressBars();
-                languagesObserver.unobserve(entry.target);
+    // 3. Smooth scrolling for navigation links
+    document.querySelectorAll('.nav-links a').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            const targetElement = document.querySelector(targetId);
+            
+            if (targetElement) {
+                const offsetTop = targetElement.offsetTop - 70;
+                window.scrollTo({
+                    top: offsetTop,
+                    behavior: 'smooth'
+                });
             }
         });
-    }, { threshold: 0.5 });
-    
-    languagesObserver.observe(languagesSection);
-}
+    });
 
-// Button hover effects enhancement
-document.querySelectorAll('.btn').forEach(button => {
-    button.addEventListener('mouseenter', function() {
-        this.style.transform = 'translateY(-2px)';
-    });
+    // 4. Custom Cursor Logic
+    const cursor = document.querySelector('.custom-cursor');
+    const cursorFollower = document.querySelector('.custom-cursor-follower');
     
-    button.addEventListener('mouseleave', function() {
-        this.style.transform = 'translateY(0)';
-    });
-});
+    if (cursor && cursorFollower && window.innerWidth > 768) {
+        document.addEventListener('mousemove', e => {
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
+            
+            // Add a slight delay for the follower
+            setTimeout(() => {
+                cursorFollower.style.left = e.clientX + 'px';
+                cursorFollower.style.top = e.clientY + 'px';
+            }, 50);
+        });
 
-// Project card interactions
-document.querySelectorAll('.project-card').forEach(card => {
-    card.addEventListener('mouseenter', function() {
-        this.style.transform = 'translateY(-10px)';
-    });
-    
-    card.addEventListener('mouseleave', function() {
-        this.style.transform = 'translateY(0)';
-    });
-});
+        // Hover effects for links and buttons
+        const interactives = document.querySelectorAll('a, button, .bento-card, .floating-planet');
+        interactives.forEach(el => {
+            el.addEventListener('mouseenter', () => {
+                cursor.classList.add('hover');
+                cursorFollower.classList.add('hover');
+            });
+            el.addEventListener('mouseleave', () => {
+                cursor.classList.remove('hover');
+                cursorFollower.classList.remove('hover');
+            });
+        });
+    }
 
-// Skill item animations
-document.querySelectorAll('.skill-item').forEach(item => {
-    item.addEventListener('mouseenter', function() {
-        this.style.transform = 'translateY(-5px) scale(1.05)';
+    // 5. 3D Tilt Effect for Bento Cards
+    const bentoCards = document.querySelectorAll('.bento-card');
+    bentoCards.forEach(card => {
+        card.addEventListener('mousemove', e => {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+            
+            const rotateX = ((y - centerY) / centerY) * -5; // Max 5deg tilt
+            const rotateY = ((x - centerX) / centerX) * 5;
+            
+            card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
+        });
+        
+        card.addEventListener('mouseleave', () => {
+            card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)';
+        });
     });
-    
-    item.addEventListener('mouseleave', function() {
-        this.style.transform = 'translateY(0) scale(1)';
-    });
-});
 
-// Social media link animations
-document.querySelectorAll('.social-link').forEach(link => {
-    link.addEventListener('mouseenter', function() {
-        this.style.transform = 'scale(1.2) rotate(5deg)';
+    // 6. Magnetic Buttons
+    const magneticBtns = document.querySelectorAll('.magnetic-btn');
+    magneticBtns.forEach(btn => {
+        btn.addEventListener('mousemove', (e) => {
+            const rect = btn.getBoundingClientRect();
+            const x = e.clientX - rect.left - rect.width / 2;
+            const y = e.clientY - rect.top - rect.height / 2;
+            
+            gsap.to(btn, {
+                duration: 0.3,
+                x: x * 0.4,
+                y: y * 0.4,
+                ease: "power2.out"
+            });
+        });
+        
+        btn.addEventListener('mouseleave', () => {
+            gsap.to(btn, {
+                duration: 0.7,
+                x: 0,
+                y: 0,
+                ease: "elastic.out(1, 0.3)"
+            });
+        });
     });
-    
-    link.addEventListener('mouseleave', function() {
-        this.style.transform = 'scale(1) rotate(0deg)';
-    });
-});
 
-// Year in footer update
-document.addEventListener('DOMContentLoaded', function() {
+    // 7. Hero Text Mouse Parallax
+    const heroContent = document.querySelector('.hero-content');
+    if (heroContent && window.innerWidth > 768) {
+        document.addEventListener('mousemove', e => {
+            const x = (window.innerWidth / 2 - e.clientX) / 50;
+            const y = (window.innerHeight / 2 - e.clientY) / 50;
+            heroContent.style.transform = `translate(${x}px, ${y}px)`;
+        });
+    }
+
+    // 8. Update Footer Year Automatically
+    const footerYears = document.querySelectorAll('.copyright');
     const currentYear = new Date().getFullYear();
-    const footerYears = document.querySelectorAll('.footer-content p:first-child');
-    
     footerYears.forEach(element => {
-        if (element.textContent.includes('2026')) {
+        if (element.innerHTML.includes('2026')) {
             element.innerHTML = element.innerHTML.replace('2026', currentYear);
         }
     });
-});
 
-// Prevent form submission (if there were forms)
-document.addEventListener('submit', function(e) {
-    e.preventDefault();
-});
-
-// Console message for developers
-console.log('%c👋 Hello Developer!', 'color: #2563eb; font-size: 20px; font-weight: bold;');
-console.log('%cWelcome to my portfolio! Feel free to explore the code.', 'color: #64748b; font-size: 14px;');
-console.log('%cCheck out my GitHub: https://github.com/Esteban-Lucas-Hernandez', 'color: #2563eb; font-size: 14px;');
-
-// Performance optimization - lazy loading for images (future implementation)
-// This is a placeholder for future image optimization
-document.addEventListener('DOMContentLoaded', function() {
-    // Future implementation for lazy loading images
-    if ('IntersectionObserver' in window) {
-        const imageObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const img = entry.target;
-                    if (img.dataset.src) {
-                        img.src = img.dataset.src;
-                        img.classList.remove('lazy');
-                        imageObserver.unobserve(img);
-                    }
-                }
-            });
-        });
-        
-        // Would apply to actual images in the future
-        // document.querySelectorAll('img[data-src]').forEach(img => imageObserver.observe(img));
-    }
 });
